@@ -105,13 +105,19 @@ def slow(cornerx,cornery): #Input the coordinates of the topleft corner
             slowdown = True
 
 #Start Screen
+#Playing music
+pygame.mixer.music.load('start_music.wav')
+pygame.mixer.music.play(-1)
 while not started:
+    #Randomizes colours for funmode
     thingcounter += 1 #Counts the amount of frames
     if thingcounter == 12: #Once x frames have passed it enables a colour change
         rancol[0] = random.randint(0,255) #Changes the red value 
         rancol[1] = random.randint(0,255) #Changes the green value
         rancol[2] = random.randint(0,255) #Changes the blue value
         thingcounter = 0 #Resets the frame counter
+
+
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -163,6 +169,7 @@ while not started:
 
     #Options menu
     while options == True:
+        #Randomizes colours for funmode
         thingcounter += 1 #Counts the amount of frames
         if thingcounter == 8: #Once x frames have passed it enables a colour change
             rancol[0] = random.randint(0,255) #Changes the red value 
@@ -369,7 +376,12 @@ while not started:
     pygame.display.update()
     clock.tick(60)
 
+#Gameplay
+pygame.mixer.music.stop()
+pygame.mixer.music.load('game_sound.wav')
+pygame.mixer.music.play(-1)
 while not crashed and endgame == False:
+    #Randomizes colours for funmode
     thingcounter += 1 #Counts the amount of frames
     if thingcounter == 15: #Once x frames have passed it enables a colour change
         rancol[0] = random.randint(0,255) #Changes the red value 
@@ -563,7 +575,12 @@ while not crashed and endgame == False:
     clock.tick(60)
 
 #Endscreen
+#Play music
+pygame.mixer.music.stop()
+pygame.mixer.music.load('end_music.wav')
+pygame.mixer.music.play(-1)
 while endgame == True:
+    #Randomizes colours for funmode
     thingcounter += 1 #Counts the amount of frames
     if thingcounter == 9: #Once x frames have passed it enables a colour change
         rancol[0] = random.randint(0,255) #Changes the red value 
